@@ -4,7 +4,7 @@ class Node(object):
         self.nextNode = None
 
 
-class LinkedList(object):
+class SinglyLinkedList(object):
     def __init__(self):
         self.head = None
         self.size = 0
@@ -69,7 +69,7 @@ class LinkedList(object):
             previousNode.nextNode = currentNode.nextNode
 
 
-linkedList = LinkedList()
+linkedList = SinglyLinkedList()
 linkedList.insertStart(12)
 linkedList.insertStart(122)
 linkedList.insertStart(3)
