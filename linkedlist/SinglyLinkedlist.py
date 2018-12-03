@@ -10,78 +10,78 @@ class SinglyLinkedList(object):
         self.size = 0
 
      # O(1)
-    def insertStart (self, data):
+    def insert_start (self, data):
         self.size = self.size + 1
-        newNode = Node(data)
+        new_node = Node(data)
 
         if not self.head:
-            self.head = newNode
+            self.head = new_node
         else:
-            newNode.nextNode = self.head
-            self.head = newNode
+            new_node.nextNode = self.head
+            self.head = new_node
 
     def size1(self):
         return self.size
 
     def size2(self):
-        actualNode = self.head
+        actual_node = self.head
         size = 0
 
-        while actualNode is not None:
-            size+=1
-            actualNode = actualNode.nextNode
+        while actual_node is not None:
+            size += 1
+            actual_node = actual_node.nextNode
 
         return size
 
     # O(N)
-    def insertEnd(self, data):
+    def insert_end(self, data):
         self.size = self.size + 1
-        newNode = Node(data)
-        actualNode = self.head
+        new_node = Node(data)
+        actual_node = self.head
 
-        while actualNode.nextNode is not None:
-            actualNode = actualNode.nextNode
+        while actual_node.nextNode is not None:
+            actual_node = actual_node.nextNode
 
-        actualNode.nextNode = newNode
+            actual_node.nextNode = new_node
 
-    def traverseList (self):
-        actualNode = self.head
+    def traverse_list(self):
+        actual_node = self.head
 
-        while actualNode is not None:
-            print("%d " % actualNode.data)
-            actualNode = actualNode.nextNode
+        while actual_node is not None:
+            print("%d " % actual_node.data)
+            actual_node = actual_node.nextNode
 
     def remove(self, data):
         if self.head is None:
             return
         self.size -= 1
 
-        currentNode = self.head
-        previousNode = None
+        current_node = self.head
+        previous_node = None
 
-        while currentNode.data != data:
-            previousNode = currentNode
-            currentNode = currentNode.nextNode
+        while current_node.data != data:
+            previous_node = current_node
+            current_node = current_node.nextNode
 
-        if previousNode is None:
-            self.head = currentNode.nextNode
+        if previous_node is None:
+            self.head = current_node.nextNode
         else:
-            previousNode.nextNode = currentNode.nextNode
+            previous_node.nextNode = current_node.nextNode
 
 
 linkedList = SinglyLinkedList()
-linkedList.insertStart(12)
-linkedList.insertStart(122)
-linkedList.insertStart(3)
-linkedList.insertEnd(31)
+linkedList.insert_start(12)
+linkedList.insert_start(122)
+linkedList.insert_start(3)
+linkedList.insert_end(31)
 
-linkedList.traverseList()
-print("Size of the linkedlist:", linkedList.size1())
+linkedList.traverse_list()
+print("Size of the linked list:", linkedList.size1())
 
 linkedList.remove(31)
 linkedList.remove(12)
 linkedList.remove(122)
 # linkedList.remove(3)
 
-linkedList.traverseList()
-print("Size of the linkedlist:", linkedList.size1())
+linkedList.traverse_list()
+print("Size of the linked list:", linkedList.size1())
